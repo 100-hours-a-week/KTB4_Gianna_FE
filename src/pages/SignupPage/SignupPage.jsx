@@ -77,8 +77,8 @@ export const SignupPage = () =>{
     pfpHelperText === "";
 
     return(
-        <main class="signup-page">
-            <section class="signup-container">
+        <main className="signup-page">
+            <section className="signup-container">
                 <h2>회원가입</h2>
                 <div id="signup-form">
                 <SignupForm 
@@ -97,7 +97,7 @@ export const SignupPage = () =>{
                     isSignupEnable={isSignupEnable}
                     makeSignUpFormData={makeSignUpFormData}/>
                  </div>
-                <a class="login-link" href={"/login"}>로그인하러 가기</a>
+                <a className="login-link" href={"/login"}>로그인하러 가기</a>
             </section>
         </main>
     )
