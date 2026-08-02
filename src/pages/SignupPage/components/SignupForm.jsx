@@ -20,7 +20,7 @@ export const SignupForm = ({onNicknameChange, nicknameHelperText, onEmailChange,
             <p id="pwdHelperText" className="helper-text">{pwdHelperText}</p>
 
             <label htmlFor="confirm-password">비밀번호 확인*</label>
-            <input id="confirmPassword" type="password" placeholder="비밀번호를 한번 더 입력하세요" onChange={(event)=>{onConfirmPasswordChange(event.target.value)}}/>
+            <input id="confirm-password" type="password" placeholder="비밀번호를 한번 더 입력하세요" onChange={(event)=>{onConfirmPasswordChange(event.target.value)}}/>
             <p id="confirmPwdHelperText" className="helper-text">{confirmPwdHelperText}</p>
 
                 <label htmlFor="nickname">닉네임*</label>
