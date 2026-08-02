@@ -1,17 +1,9 @@
-export const signUpAPIResponse = async (email, password, nickname, profilePicture) =>{
+export const signUpAPIResponse = async (formData) =>{
     try {
             const response = await fetch('/users/signup', {
                 method: 'POST',
                 credentials:"include",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: password,
-                    nickname: nickname,
-                    profilePicture: profilePicture
-                })
+                body: formData
             });
             if (!response.ok) {
                 throw new Error('회원가입 실패');

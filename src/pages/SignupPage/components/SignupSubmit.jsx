@@ -1,20 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { signUpAPIResponse } from "../../../api/users";
-export const SignupSubmit = ({isSignupEnable, nickname, email, password, profilePicture}) =>{
+export const SignupSubmit = ({isSignupEnable, makeSignUpFormData}) =>{
    const navigate = useNavigate();
 
     async function signUpProcess() {
-        const response = await signUpAPIResponse(email, password, nickname, profilePicture);    
+        const formData = makeSignUpFormData();
+        const response = await signUpAPIResponse(formData);    
     
         if(response) navigate('/login');
    }
     return(
         <>
-            <button id="signupBtn" type="button" disabled={!isSignupEnable} 
-            onClick={ async () => 
-            { if(isSignupEnable) 
-                await signUpProcess();
-            }}>회원가입</button>
+            <button id="signupBtn" type="button" disabled={!isSignupEnable} onClick={ signUpProcess()}>회원가입</button>
         </>
     )
 }

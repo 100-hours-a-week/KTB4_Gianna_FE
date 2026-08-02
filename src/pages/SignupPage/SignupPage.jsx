@@ -51,12 +51,24 @@ export const SignupPage = () =>{
         setPfpHelperText(helperText)
     }
 
+    function makeSignUpFormData(){
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('password', password);
+        formData.append('nickname', nickname);
+        
+        if (profilePicture instanceof File) {
+            formData.append("profilePicture", profilePicture);
+        } 
+       return formData;
+    }
+    
     const isSignupEnable =
     nickname !== "" &&
     email !== "" &&
     password !== "" &&
     confirmPwd !== "" &&
-    profilePicture !== "" &&
+    profilePicture instanceof File &&
 
     nicknameHelperText === "" &&
     emailHelperText === "" &&
@@ -83,10 +95,7 @@ export const SignupPage = () =>{
                 />
                 <SignupSubmit 
                     isSignupEnable={isSignupEnable}
-                    nickname={nickname}
-                    email={email}
-                    password={password}
-                    profilePicture={profilePicture}/>
+                    makeSignUpFormData={makeSignUpFormData}/>
                  </div>
                 <a class="login-link" href={"/login"}>로그인하러 가기</a>
             </section>

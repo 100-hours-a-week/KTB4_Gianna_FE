@@ -8,7 +8,7 @@ export const SignupForm = ({onNicknameChange, nicknameHelperText, onEmailChange,
                     <label class="profile-upload" for="profilePicture">
                     <span>+</span>
                 </label>
-                <input id="profilePicture" type="file" accept="image/png, image/jpeg" onChange={(event)=>{onProfilePictureChange(event.target.value)}}/>
+                <input id="profilePicture" type="file" accept="image/png, image/jpeg" onChange={(event)=>{onProfilePictureChange(event.target.files[0])}}/>
             </div>
 
             <label for="email">이메일*</label>
