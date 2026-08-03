@@ -11,7 +11,7 @@ export const SignupSubmit = ({isSignupEnable, makeSignUpFormData}) =>{
    }
     return(
         <>
-            <button id="signupBtn" type="button" disabled={!isSignupEnable} onClick={ signUpProcess()}>회원가입</button>
+            <button id="signupBtn" type="button" disabled={!isSignupEnable} onClick={ ()=>{signUpProcess()}}>회원가입</button>
         </>
     )
 }
