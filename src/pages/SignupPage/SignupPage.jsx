@@ -53,10 +53,20 @@ export const SignupPage = () =>{
 
     function makeSignUpFormData(){
         const formData = new FormData();
-        formData.append('email', email);
-        formData.append('password', password);
-        formData.append('nickname', nickname);
-        
+        formData.append(
+            "request",
+            new Blob(
+                [
+                    JSON.stringify({
+                        email: email,
+                        password: password,
+                        nickname : nickname
+                    }),
+                ],
+        { type: "application/json" }
+        )
+        );
+
         if (profilePicture instanceof File) {
             formData.append("profilePicture", profilePicture);
         } 
