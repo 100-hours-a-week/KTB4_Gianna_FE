@@ -4,7 +4,7 @@ export const PostDetail = ({post}) =>{
             <section id="postContainer">
                 <img
                     id="postViewFile"
-                    src={post.file }
+                    src={`/posts/${post.id}/image`}
                     alt={post.title || "게시글 이미지"}
                 />
 
