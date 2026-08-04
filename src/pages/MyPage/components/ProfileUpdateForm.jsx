@@ -9,7 +9,7 @@ export const ProfileUpdateForm = ({email, userId, nickname, onNicknameChange}) =
         const csrf = await requestCsrfAPIJsonResponse();
         
         try{
-            const response = await fetch(`/users/${userId}/nickname`, {
+            const response = await fetch(`/users/nickname`, {
                 method: 'PATCH',
                 credentials:"include",
                 headers: {
@@ -30,7 +30,7 @@ export const ProfileUpdateForm = ({email, userId, nickname, onNicknameChange}) =
                 setTimeout(()=>{
                     setShowToast(false);
                     navigate('/board')
-                }, 5000)
+                }, 2500)
             }
         } catch(error){
             console.error('오류 발생:', error);

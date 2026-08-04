@@ -27,7 +27,7 @@ export const MyPage = () =>{
     
             <main className="mypage-update-page">
                 <h1>회원정보수정</h1>
-                {<ProfileUpdateForm email={user?.email || ""} userId={user?.userId || ""    } nickname={nickname} onNicknameChange={setNickname}/>}
+                {<ProfileUpdateForm email={user?.email || ""} userId={user?.userId || "" } nickname={nickname} onNicknameChange={setNickname}/>}
             </main>
         </>
     )
