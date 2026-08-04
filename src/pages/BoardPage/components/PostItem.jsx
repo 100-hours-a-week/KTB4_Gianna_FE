@@ -5,18 +5,18 @@ const defaultCategory = "카테고리";
 
 export const PostItem = ({ post }) => {
     const navigate = useNavigate();
+    const imageAlt = post.title ? `${post.title} 이미지` : "게시글 이미지";
 
     function handleClick() {
         navigate(`/post/${post.id}`);
     }
 
     return (
-        <article className="post-card" onClick={handleClick} post={post}>
-            <div
+        <article className="post-card" onClick={handleClick}>
+            <img
                 className="post-card-image"
-                style={{
-                    backgroundImage: `url("${post.file}")`,
-                }}
+                src={`/posts/${post.id}/image`}
+                alt={imageAlt}
             />
 
             <div className="post-card-main">
@@ -30,9 +30,9 @@ export const PostItem = ({ post }) => {
                     </span>
 
                     <div className="post-card-stats">
-                        <span>좋아요 {post.likes || 0}</span>
-                        <span>댓글 {post.commentCount || 0}</span>
-                        <span>조회수 {post.views || 0}</span>
+                        <span>좋아요 {post.likes ?? 0}</span>
+                        <span>댓글 {post.commentCount ?? 0}</span>
+                        <span>조회수 {post.views ?? 0}</span>
                     </div>
 
                     <span className="post-card-date">

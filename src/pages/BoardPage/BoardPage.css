@@ -194,18 +194,11 @@ body {
 }
 
 .post-card-image {
+    width: 100%;
     height: 170px;
     display: block;
-    background-size: cover;
-    background-position: center;
-}
-
-.post-card-image::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    display: block;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(80, 74, 55, 0.1));
+    object-fit: cover;
+    object-position: center;
 }
 
 .post-card-main {
