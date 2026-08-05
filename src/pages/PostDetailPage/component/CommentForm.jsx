@@ -36,7 +36,7 @@ export const CommentForm = () =>{
                 }
             }
             getCommentList();
-        }, [] )
+        }, [commentList] )
     return(
         <>
            <section id="postCommentContainer" className="comment-write-container">

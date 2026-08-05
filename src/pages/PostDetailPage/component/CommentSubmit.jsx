@@ -24,8 +24,6 @@ export const CommentSubmit = ({commentValue, isEdit, setIsEdit, commentId, setEd
             if (!response.ok) {
                 throw new Error('댓글 작성 실패');
             }
-
-            location.reload();
         }catch(error){
             console.error('댓글 작성 중 오류 발생:', error);
         }
@@ -52,7 +50,6 @@ export const CommentSubmit = ({commentValue, isEdit, setIsEdit, commentId, setEd
         }
 
         setEditCommentId(0)
-        location.reload();
     }catch(error){
         console.error('댓글 작성 중 오류 발생:', error);
     }
@@ -60,7 +57,11 @@ export const CommentSubmit = ({commentValue, isEdit, setIsEdit, commentId, setEd
 
     function getBtnName(){ 
         if(commentValue.length === 0) {
-            { () => setEditCommentId(0) }
+            { () => {
+                setEditCommentId(0) 
+                setIsEdit(false)
+            }}
+            
             return "댓글 등록";
         }else{
             return isEdit ? "댓글 수정" : "댓글 등록";

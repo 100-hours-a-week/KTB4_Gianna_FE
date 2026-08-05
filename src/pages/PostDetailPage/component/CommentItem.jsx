@@ -27,7 +27,7 @@ export const CommentItem = ({comment, setComment, onEdit, setEditCommentId}) =>{
                     throw new Error('로그인 실패');
                 }
 
-                location.reload(); //목록 갱신
+                //location.reload(); //목록 갱신
             } catch(error){
                 console.error('로그인 중 오류 발생:', error);
             }
