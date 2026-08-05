@@ -214,39 +214,6 @@ body {
     border-radius: 999px;
 }
 
-.post-stats {
-    grid-column: 2;
-    display: flex;
-    gap: 12px;
-    margin: 28px 58px 42px;
-}
-
-.post-stats button {
-    min-width: 94px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    border: none;
-    border-radius: 999px;
-    background-color: #f0f0ef;
-    color: #66715f;
-    font-family: inherit;
-    cursor: pointer;
-}
-
-.post-stats p {
-    margin: 0;
-}
-
-.post-stats strong,
-.post-stats span {
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1;
-}
-
 .comment-write-container,
 .comment-list-container {
     width: min(760px, 100%);

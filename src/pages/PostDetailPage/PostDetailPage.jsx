@@ -68,12 +68,6 @@ export const PostDetailPage = () =>{
                     <div id="postContainer">
                         {<PostDetail post ={post}/>} 
                     </div>
-                    
-                    {/* <div id="postStats" className="post-stats">
-                        <button id="postStatsLikeBtn" type="button"><p id="postStatsLikeDesc"><strong></strong></p><span>좋아요수</span></button>
-                        <button id="postStatsViewBtn" type="button"><p id="postStatsViewDesc"><strong></strong></p><span>조회수</span></button>
-                        <button id="postStatsCommentBtn" type="button"><p id="postStatsCommentCountDesc"><strong></strong></p><span>댓글</span></button>
-                    </div> */}
                 </article>
 
                 <section id="commentListContainer" className="comment-list-container">
