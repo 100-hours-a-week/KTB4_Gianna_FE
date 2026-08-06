@@ -11,37 +11,53 @@ export const CommentForm = () =>{
     const [editCommentId, setEditCommentId] = useState(0);
     const postId = useParams()?.postId;
 
-    useEffect(()=>{ 
-            async function getCommentList(){
-                const csrf = await requestCsrfAPIJsonResponse();
+    function initialize(){
+        setComment("")
+        setIsEdit(false);
+        setEditCommentId(0);
+    }
+
+    async function getCommentList () {
+        const csrf = await requestCsrfAPIJsonResponse();
                 
-                try{
-                    const response = await fetch(`/posts/${postId}/comments`, {
-                        method: 'GET',
-                        credentials:"include",
-                        headers:{
-                            [csrf.headerName] : csrf.token
-                        }
-                    });
-    
-                    if (!response.ok) {
-                        throw new Error('댓글 조회 실패');
-                    }
-    
-                    const data = await response.json();
-                    //console.log(data.data)
-                    setCommentList(data.data.commentsList);
-                }catch(error){
-                    console.error('로그인 중 오류 발생:', error);
+        try{
+            const response = await fetch(`/posts/${postId}/comments`, {
+                method: 'GET',
+                credentials:"include",
+                headers:{
+                    [csrf.headerName] : csrf.token
                 }
+            });
+
+            if (!response.ok) {
+                throw new Error('댓글 조회 실패');
             }
+    
+            const data = await response.json();
+            //console.log(data.data)  
+            setCommentList(data.data.commentsList);
+            initialize();
+
+        }catch(error){
+           console.error('로그인 중 오류 발생:', error);
+        }
+    }
+    
+    useEffect(()=>{ 
             getCommentList();
-        }, [commentList] )
+        }, [] )
     return(
         <>
            <section id="postCommentContainer" className="comment-write-container">
-                <textarea id="commentContentEnter" placeholder="댓글을 남겨주세요!" value={comment.length===0 ? "" : comment} onChange={(event)=>{setComment(event.target.value)}}></textarea>
-                {<CommentSubmit commentValue={comment} isEdit = {isEdit} setIsEdit = {setIsEdit} commentId ={editCommentId} setEditCommentId={setEditCommentId}/>}
+                <textarea id="commentContentEnter" placeholder="댓글을 남겨주세요!" value={comment} onChange={(event)=>{setComment(event.target.value)}}></textarea>
+                {<CommentSubmit 
+                setComment ={setComment} 
+                commentValue={comment} 
+                isEdit = {isEdit} 
+                setIsEdit = {setIsEdit} 
+                commentId ={editCommentId} 
+                setEditCommentId={setEditCommentId}
+                getCommentList={getCommentList}/>}
             </section>  
 
             {
@@ -51,7 +67,8 @@ export const CommentForm = () =>{
                         comment={comment}
                         setComment={setComment}
                         onEdit = {setIsEdit}
-                        setEditCommentId ={setEditCommentId}/>
+                        setEditCommentId ={setEditCommentId}
+                        getCommentList={getCommentList}/>
                     })
             }
         </>

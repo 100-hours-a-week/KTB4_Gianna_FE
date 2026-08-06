@@ -2,7 +2,7 @@ import { requestCsrfAPIJsonResponse } from "../../../api/csrf";
 import { getUserId  } from "../../../module/module";
 import { useParams } from "react-router-dom";
 
-export const CommentSubmit = ({setComment, commentValue, isEdit, setIsEdit, commentId, setEditCommentId}) =>{
+export const CommentSubmit = ({setComment, commentValue, isEdit, setIsEdit, commentId, setEditCommentId, getCommentList}) =>{
     
     const postId = useParams()?.postId;
 
@@ -26,8 +26,7 @@ export const CommentSubmit = ({setComment, commentValue, isEdit, setIsEdit, comm
             if (!response.ok) {
                 throw new Error('댓글 작성 실패');
             }
-            setComment("")
-            setIsEdit(false)
+            getCommentList();
         }catch(error){
             console.error('댓글 작성 중 오류 발생:', error);
         }
@@ -52,9 +51,7 @@ export const CommentSubmit = ({setComment, commentValue, isEdit, setIsEdit, comm
             if (!response.ok) {
                 throw new Error('댓글 수정 실패');
             }
-            setComment("")
-            setEditCommentId(0)
-            setIsEdit(false)
+            getCommentList();
 
         } catch(error){
             console.error('댓글 작성 중 오류 발생:', error);
@@ -64,7 +61,8 @@ export const CommentSubmit = ({setComment, commentValue, isEdit, setIsEdit, comm
     function handleCommentCancel(){
         setComment("")
         setIsEdit(false);
-        setEditCommentId(0);    }
+        setEditCommentId(0);   
+    }
 
     return (
         <div className="comment-submit-actions">

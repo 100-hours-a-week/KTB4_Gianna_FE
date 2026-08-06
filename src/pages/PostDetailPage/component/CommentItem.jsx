@@ -1,6 +1,6 @@
 import { getUserId, formalizeDate } from "../../../module/module";
 import { requestCsrfAPIJsonResponse } from "../../../api/csrf";
-export const CommentItem = ({comment, setComment, onEdit, setEditCommentId}) =>{
+export const CommentItem = ({comment, setComment, onEdit, setEditCommentId, getCommentList}) =>{
     function checkIsAuthor () {
         const userId = getUserId();
         return userId === Number(comment.userId)
@@ -27,7 +27,7 @@ export const CommentItem = ({comment, setComment, onEdit, setEditCommentId}) =>{
                     throw new Error('로그인 실패');
                 }
 
-                //location.reload(); //목록 갱신
+                getCommentList();
             } catch(error){
                 console.error('로그인 중 오류 발생:', error);
             }
