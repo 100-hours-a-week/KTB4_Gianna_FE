@@ -241,18 +241,32 @@ body {
     font-family: inherit;
 }
 
-#postCommentBtn {
+.comment-submit-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 10px;
+}
+
+#postCommentBtn,
+#postCommentCancelBtn {
     width: 110px;
     height: 34px;
-    display: block;
-    margin: 10px 10px 10px auto;
     border: none;
     border-radius: 7px;
-    background-color: #8fa58a;
-    color: #ffffff;
     font-size: 13px;
     font-weight: 700;
     cursor: pointer;
+}
+
+#postCommentBtn {
+    background-color: #8fa58a;
+    color: #ffffff;
+}
+
+#postCommentCancelBtn {
+    background-color: #f2f2f2;
+    color: #4f5b4b;
 }
 
 .comment-list-container {
