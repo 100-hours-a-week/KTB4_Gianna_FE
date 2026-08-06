@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { requestCsrfAPIJsonResponse } from "../../../api/csrf";
+import { formalizeDate } from "../../../module/module";
 export const PostHeader = ({ post, isAuthor}) =>{
     const navigate = useNavigate();
 
@@ -48,7 +49,7 @@ export const PostHeader = ({ post, isAuthor}) =>{
                     </h4>
 
                     <h4 id="postUploadDate">
-                        {post.createdAt}
+                        {formalizeDate(post.createdAt)}
                     </h4>
                 </div>
 
