@@ -1,11 +1,10 @@
 import './Header.css'
 import { useNavigate } from "react-router-dom"
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { deleteCookie } from '../../api/deleteCookie';
 import { getProfilePictureAPIResponse } from '../../api/users';
 export const Header = () =>{
     const [isToggleOpen, setIsToggleOpen] = useState(false)
-    const [profilePictureURL, setProfilePictureURL] = useState(null);
     const navigate = useNavigate();
     function handleGoBack(){
         history.back();
@@ -34,28 +33,6 @@ export const Header = () =>{
         navigate('/mypage/password');
     }
 
-    useEffect(()=>{
-        let objectURL;
-
-        async function getProfilePicture() {
-            const profileData = await getProfilePictureAPIResponse();
-
-            if (!profileData) {
-                return;
-            }
-            objectURL = URL.createObjectURL(profileData)
-            setProfilePictureURL(objectURL);
-        }
-
-        getProfilePicture();
-
-        return () => {
-        if (objectURL) {
-            URL.revokeObjectURL(objectURL);
-        }
-    };
-    }, []);
-
    
     return (
         <>
@@ -64,7 +41,7 @@ export const Header = () =>{
                 <h2 id="headerTitle" onClick={goToBoard}>Raffiné</h2>
 
                 <button id="profileToggleBtn" className="profile-toggle-btn" type="button" aria-label="마이페이지 메뉴 열기" onClick={handleToggleClick}>
-                    <img id="headerProfilePicture" src={profilePictureURL} alt="프로필 사진"/>
+                    <img id="headerProfilePicture" src={`/users/profilePicture`} alt="프로필 사진"/>
                 </button>
 
                 <div className="mypage-toggle-container" hidden={!isToggleOpen}>
