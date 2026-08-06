@@ -38,8 +38,13 @@ export const CommentItem = ({comment, setComment, onEdit, setEditCommentId, getC
 
     return (
         <article className="comment-item">
-            <div className="comment-profile" />
-
+            <div className="comment-profile">
+                <img
+                        id="postProfilePicture"
+                        src={`/users/${comment.userId}/profilePicture`}
+                        alt={`${comment.author || "작성자"} 프로필`}
+                    />
+            </div>
             <div className="comment-meta">
                 <h5 className="comment-author-text">
                     {comment.author || "익명"}
