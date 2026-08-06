@@ -9,7 +9,6 @@ import { CommentForm } from './component/CommentForm';
 import { Header } from '../../components/Header/Header';
 export const PostDetailPage = () =>{
     const [post, setPost] = useState(null);
-    const [user, setUser] = useState(null);
     const postId = useParams()?.postId;
 
 
@@ -34,14 +33,7 @@ export const PostDetailPage = () =>{
                 }
 
                 const data = await response.json();
-                //console.log(data.data.userId)
-                const getUserResponse = await getUser(data.data.userId)
-                if(getUserResponse.status === 403){
-                }
                 setPost(data.data)
-                setUser(getUserResponse)
-                
-                //const postUserId = data.data.userId
                 
         }catch(error){
             console.error('boardView 오류 발생:', error);
@@ -62,7 +54,7 @@ export const PostDetailPage = () =>{
             <main className="board-view-page">
                 <article className="post-detail">
                     <div id="postHeader">
-                        {<PostHeader  user={user} post ={post} isAuthor={isAuthor}/>}
+                        {<PostHeader  post ={post} isAuthor={isAuthor}/>}
                     </div>
 
                     <div id="postContainer">

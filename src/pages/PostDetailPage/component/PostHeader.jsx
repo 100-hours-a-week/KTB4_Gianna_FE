@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { requestCsrfAPIJsonResponse } from "../../../api/csrf";
-export const PostHeader = ({user, post, isAuthor}) =>{
+export const PostHeader = ({ post, isAuthor}) =>{
     const navigate = useNavigate();
 
     async function handleDelete() {
@@ -39,7 +39,7 @@ export const PostHeader = ({user, post, isAuthor}) =>{
                 <div className="post-header-meta">
                     <img
                         id="postProfilePicture"
-                        src={user?.profilePicture || null}
+                        src={`/users/${post.userId}/profilePicture`}
                         alt={`${post.author || "작성자"} 프로필`}
                     />
 
