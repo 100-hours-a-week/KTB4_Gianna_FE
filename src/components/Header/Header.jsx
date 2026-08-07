@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { deleteCookie } from '../../api/deleteCookie';
 import { getProfilePictureAPIResponse } from '../../api/users';
 export const Header = () =>{
+    const [curPage, setCurPage] = useState("board"); //board, myPost, discussion
     const [isToggleOpen, setIsToggleOpen] = useState(false)
     const navigate = useNavigate();
     function handleGoBack(){
@@ -33,6 +34,9 @@ export const Header = () =>{
         navigate('/mypage/password');
     }
 
+    function handlePageChange(pageName){
+        setCurPage(pageName);
+    }
    
     return (
         <>
@@ -43,6 +47,21 @@ export const Header = () =>{
                 <button id="profileToggleBtn" className="profile-toggle-btn" type="button" aria-label="마이페이지 메뉴 열기" onClick={handleToggleClick}>
                     <img id="headerProfilePicture" src={`/users/profilePicture`} alt="프로필 사진"/>
                 </button>
+
+                <nav className="board-filter-nav">
+                    <span
+                        className={curPage === "board" ? "active-filter" : ""}
+                        onClick={() => handlePageChange("board")}
+                    >전체 게시물</span>
+                    <span
+                        className={curPage === "myPost" ? "active-filter" : ""}
+                        onClick={() => handlePageChange("myPost")}
+                    >내 게시물</span>
+                    <span
+                        className={curPage === "discussion" ? "active-filter" : ""}
+                        onClick={() => handlePageChange("discussion")}
+                    >토론의 장</span>
+                </nav>
 
                 <div className="mypage-toggle-container" hidden={!isToggleOpen}>
                     <ul>
