@@ -36,20 +36,25 @@ export const BoardPage = () =>{
 
     return(
         <>
-            <div id="headerContainer"> {<Header/>} </div>
+            <div id="headerContainer">
+                {<Header/>}
+            </div>
             <main className="board-page">
                 <section className="board-intro">
                     <h1>온전한 '나의 취향'을 <br/>만들어가는 공간. <br/></h1>
-                    <button className="write-post-link" type="button" onClick={()=>{navigate('/post/write')}}>게시글 작성</button>
+                    <button className="write-post-btn" type="button" onClick={()=>{navigate('/post/write')}}>게시글 작성</button>
                 </section>
                 
-                <section id="post-list-container" className="post-list-container">
-                    {postItems.map((post)=>{
-                        return <PostItem
-                        key={post.id}
-                        post={post}
-                        />
-                })}</section>
+                <section className="board-content">
+                    <div id="post-list-container" className="post-list-container">
+                        {postItems.map((post)=>{
+                            return <PostItem
+                            key={post.id}
+                            post={post}
+                            />
+                    })}</div>
+
+                </section>
             </main> 
         </>
     )
