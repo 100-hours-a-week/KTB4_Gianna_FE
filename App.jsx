@@ -10,6 +10,8 @@ import { PostDetailPage } from "./src/pages/PostDetailPage/PostDetailPage.jsx";
 import { PostEditPage } from "./src/pages/PostEditPage/PostEditPage.jsx";
 import { MyPage } from "./src/pages/MyPage/MyPage.jsx";
 import { ChangePasswordPage } from "./src/pages/ChangePasswordPage/ChangePasswordPage.jsx";
+import { DiscussionPage } from "./src/pages/DiscussionPage/DiscussionPage.jsx";
+import { MyPostPage } from "./src/pages/MyPostPage/MyPostPage.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -23,6 +25,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/post/:postId/edit" element={<PostEditPage/>}/>       
         <Route path="/mypage" element={<MyPage/>}/>
         <Route path="/mypage/password" element={<ChangePasswordPage/>}/>
+        <Route path="/discussion" element={<DiscussionPage/>}/>
+        <Route path="/myPost" element={<MyPostPage/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
