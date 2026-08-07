@@ -36,6 +36,13 @@ export const Header = () =>{
 
     function handlePageChange(pageName){
         setCurPage(pageName);
+        if(pageName === "discussion"){
+            navigate('/discussion');
+        } else if(pageName === "board"){
+            navigate('/board');
+        } else if(pageName === "myPost"){
+            navigate('/myPost');
+        }
     }
    
     return (
