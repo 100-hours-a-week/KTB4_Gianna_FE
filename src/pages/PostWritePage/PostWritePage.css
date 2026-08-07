@@ -12,62 +12,6 @@ body {
     font-family: "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif;
 }
 
-#headerContainer .main-header {
-    height: 92px;
-    max-width: calc(100% - 96px);
-    margin: 0 auto;
-    justify-content: flex-start;
-    border-bottom: none;
-    background-color: transparent;
-    color: #244927;
-}
-
-#headerContainer #headerTitle {
-    margin: 0;
-    color: #244927;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 0;
-    font-weight: 400;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.18);
-}
-
-#headerContainer #headerTitle::before {
-    content: "Raffiné";
-    font-size: 38px;
-}
-
-#headerContainer .back-btn {
-    display: none;
-}
-
-#headerContainer .profile-toggle-btn {
-    left: auto;
-    right: 0;
-    width: 44px;
-    height: 44px;
-    background-color: #e7e3da;
-}
-
-#headerContainer .profile-toggle-btn::after {
-    content: "⌄";
-    position: fixed;
-    top: 45px;
-    right: 54px;
-    color: #1f2d1f;
-    font-size: 22px;
-    line-height: 1;
-}
-
-#headerContainer .mypage-toggle-container {
-    left: auto;
-    right: 0;
-    top: 72px;
-    border: 1px solid rgba(36, 73, 39, 0.12);
-    border-radius: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 12px 28px rgba(53, 63, 45, 0.16);
-}
-
 .post-write-page {
     position: relative;
     width: min(1210px, calc(100% - 96px));
@@ -210,7 +154,6 @@ body {
 }
 
 @media (max-width: 1080px) {
-    #headerContainer .main-header,
     .post-write-page {
         width: calc(100% - 48px);
         max-width: none;
@@ -231,26 +174,8 @@ body {
 }
 
 @media (max-width: 520px) {
-    #headerContainer .main-header,
     .post-write-page {
         width: calc(100% - 32px);
-    }
-
-    #headerContainer .main-header {
-        height: 78px;
-    }
-
-    #headerContainer #headerTitle::before {
-        font-size: 30px;
-    }
-
-    #headerContainer .profile-toggle-btn {
-        width: 38px;
-        height: 38px;
-    }
-
-    #headerContainer .profile-toggle-btn::after {
-        display: none;
     }
 
     .post-write-page {

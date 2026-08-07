@@ -12,68 +12,6 @@ body {
     font-family: "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif;
 }
 
-#headerContainer .main-header {
-    height: 104px;
-    max-width: calc(100% - 96px);
-    margin: 0 auto;
-    justify-content: center;
-    border-bottom: none;
-    background-color: transparent;
-}
-
-#headerContainer #headerTitle {
-    margin: 0;
-    color: #244927;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 0;
-    font-weight: 400;
-}
-
-#headerContainer #headerTitle::before {
-    content: "Raffiné";
-    font-size: 40px;
-}
-
-#headerContainer .back-btn {
-    left: 0;
-    color: #2b2a25;
-    font-size: 0;
-}
-
-#headerContainer .back-btn::before {
-    content: "← 목록으로 돌아가기";
-    font-size: 15px;
-    font-weight: 600;
-}
-
-#headerContainer .profile-toggle-btn {
-    left: auto;
-    right: 0;
-    width: 44px;
-    height: 44px;
-    background-color: #e7e3da;
-}
-
-#headerContainer .profile-toggle-btn::after {
-    content: "⌄";
-    position: fixed;
-    top: 48px;
-    right: 54px;
-    color: #1f2d1f;
-    font-size: 22px;
-    line-height: 1;
-}
-
-#headerContainer .mypage-toggle-container {
-    left: auto;
-    right: 0;
-    top: 78px;
-    border: 1px solid rgba(36, 73, 39, 0.12);
-    border-radius: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 12px 28px rgba(53, 63, 45, 0.16);
-}
-
 .board-view-page {
     width: min(1180px, calc(100% - 96px));
     margin: 0 auto;
@@ -331,7 +269,6 @@ body {
 }
 
 @media (max-width: 900px) {
-    #headerContainer .main-header,
     .board-view-page {
         width: calc(100% - 40px);
         max-width: none;
@@ -364,35 +301,8 @@ body {
 }
 
 @media (max-width: 520px) {
-    #headerContainer .main-header,
     .board-view-page {
         width: calc(100% - 28px);
-    }
-
-    #headerContainer .main-header {
-        height: 88px;
-    }
-
-    #headerContainer #headerTitle::before {
-        font-size: 30px;
-    }
-
-    #headerContainer .back-btn::before {
-        font-size: 0;
-    }
-
-    #headerContainer .back-btn::after {
-        content: "←";
-        font-size: 28px;
-    }
-
-    #headerContainer .profile-toggle-btn {
-        width: 38px;
-        height: 38px;
-    }
-
-    #headerContainer .profile-toggle-btn::after {
-        display: none;
     }
 
     #title {

@@ -12,33 +12,6 @@ body {
     font-family: "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif;
 }
 
-.signup-header .main-header {
-    height: 82px;
-    border-bottom: none;
-    background-color: transparent;
-}
-
-.signup-header #headerTitle {
-    color: #244927;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 40px;
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-
-.signup-header #headerTitle {
-    font-size: 0;
-}
-
-.signup-header #headerTitle::before {
-    content: "Raffiné";
-    font-size: 36px;
-}
-
-.signup-header .back-btn {
-    color: #244927;
-}
-
 .signup-page {
     position: relative;
     width: min(1030px, calc(100% - 48px));
@@ -61,11 +34,6 @@ body {
         url("https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=900&q=80");
     background-size: cover;
     background-position: 38% center;
-}
-
-.signup-header .profile-toggle-btn,
-.signup-header .mypage-toggle-container {
-    display: none;
 }
 
 .signup-container {
@@ -307,14 +275,6 @@ body {
 }
 
 @media (max-width: 480px) {
-    .signup-header .main-header {
-        height: 74px;
-    }
-
-    .signup-header #headerTitle::before {
-        font-size: 30px;
-    }
-
     .signup-page {
         width: calc(100% - 28px);
         min-height: 0;

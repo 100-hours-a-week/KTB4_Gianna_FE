@@ -49,7 +49,7 @@ export const Header = () =>{
         <>
             <header className="main-header">
                 <button id="backBtn" className="back-btn" type="button" aria-label="뒤로가기" onClick={handleGoBack}>&lt;</button>
-                <h2 id="headerTitle" onClick={goToBoard}>Raffiné</h2>
+                <h2 id="headerTitle" onClick={goToBoard}></h2>
 
                 <button id="profileToggleBtn" className="profile-toggle-btn" type="button" aria-label="마이페이지 메뉴 열기" onClick={handleToggleClick}>
                     <img id="headerProfilePicture" src={`/users/profilePicture`} alt="프로필 사진"/>
@@ -69,6 +69,7 @@ export const Header = () =>{
                         onClick={() => handlePageChange("discussion")}
                     >토론의 장</span>
                 </nav>
+                
 
                 <div className="mypage-toggle-container" hidden={!isToggleOpen}>
                     <ul>

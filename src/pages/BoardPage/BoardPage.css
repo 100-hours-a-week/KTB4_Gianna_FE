@@ -12,93 +12,6 @@ body {
     font-family: "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif;
 }
 
-#headerContainer {
-    position: relative;
-}
-
-
-#headerContainer .main-header {
-    height: 92px;
-    max-width: calc(100% - 96px);
-    margin: 0 auto;
-    justify-content: flex-start;
-}
-
-#headerContainer #headerTitle {
-    margin: 0;
-    color: #244927;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 34px;
-    font-weight: 400;
-    letter-spacing: 0;
-}
-
-#headerContainer #headerTitle::before {
-    content: "Raffiné";
-    font-size: 34px;
-}
-
-#headerContainer .back-btn {
-    display: none;
-}
-
-#headerContainer .profile-toggle-btn {
-    left: auto;
-    right: 0;
-    width: 44px;
-    height: 44px;
-    background-color: #e7e3da;
-}
-
-#headerContainer .profile-toggle-btn::after {
-    content: "⌄";
-    position: fixed;
-    top: 45px;
-    right: 54px;
-    color: #1f2d1f;
-    font-size: 22px;
-    line-height: 1;
-}
-
-#headerContainer .mypage-toggle-container {
-    left: auto;
-    right: 0;
-    top: 72px;
-    border: 1px solid rgba(36, 73, 39, 0.12);
-    border-radius: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 12px 28px rgba(53, 63, 45, 0.16);
-}
-
-.board-filter-nav {
-    position: absolute;
-    left: 50%;
-    bottom: -2px;
-    transform: translateX(-50%);
-    width: min(980px, calc(100% - 360px));
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0;
-    color: #5f6c59;
-    font-size: 14px;
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-.board-filter-nav span {
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.board-filter-nav .active-filter {
-    color: #244927;
-}
-
-.board-filter-nav span:hover {
-    color: #244927;
-}
-
 .board-page {
     width: min(1210px, calc(100% - 96px));
     margin: 0 auto;
@@ -332,7 +245,6 @@ body {
 }
 
 @media (max-width: 1040px) {
-    #headerContainer .main-header,
     .board-page {
         max-width: none;
         width: calc(100% - 48px);
@@ -379,33 +291,8 @@ body {
         display: block;
     }
 
-    #headerContainer .main-header,
     .board-page {
         width: calc(100% - 32px);
-    }
-
-    #headerContainer .main-header {
-        height: 78px;
-    }
-
-    #headerContainer #headerTitle::before {
-        font-size: 30px;
-    }
-
-    .board-filter-nav {
-        bottom: 8px;
-        width: calc(100% - 96px);
-        gap: 16px;
-        font-size: 12px;
-    }
-
-    #headerContainer .profile-toggle-btn {
-        width: 38px;
-        height: 38px;
-    }
-
-    #headerContainer .profile-toggle-btn::after {
-        display: none;
     }
 
     .board-intro h1 {
