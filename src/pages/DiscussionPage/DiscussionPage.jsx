@@ -3,6 +3,7 @@ import { Header } from '../../components/Header/Header.jsx';
 import { useState, useEffect, useRef } from 'react';
 import { DiscussionLog } from './components/DiscussionLog.jsx';
 import { getUserId } from '../../module/module.js';
+import { getDiscussionMessagesAPIResponse } from '../../api/discussion.js';
 
 export const DiscussionPage = () => {
     const [messageLog, setMessageLog] = useState([]); //전체 메세지
@@ -10,6 +11,15 @@ export const DiscussionPage = () => {
     const socketRef = useRef(null); 
     const bodyRef = useRef(null);
     const currentUserId = getUserId();
+
+    useEffect(() => {
+        async function getDiscussionMessages() {
+            const discussionMessages = await getDiscussionMessagesAPIResponse();
+            setMessageLog(discussionMessages);
+        }
+
+        getDiscussionMessages();
+    }, []);
 
     useEffect(()=>{
         const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
