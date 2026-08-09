@@ -8,9 +8,9 @@ export const PostDetail = ({post}) =>{
                     alt={post.title || "게시글 이미지"}
                 />
 
-                <h6 id="postContent">
+                <p id="postContent">
                     {post.content}
-                </h6>
+                </p>
             </section>
         </>
     )   
