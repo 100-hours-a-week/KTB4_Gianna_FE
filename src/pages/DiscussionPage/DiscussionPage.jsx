@@ -12,7 +12,8 @@ export const DiscussionPage = () => {
     const currentUserId = getUserId();
 
     useEffect(()=>{
-        const webSocket = new WebSocket("ws://localhost:8080/ws/discussion");
+        const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+        const webSocket = new WebSocket(`${protocol}//${window.location.host}/ws/discussion`);
         socketRef.current = webSocket;
 
         webSocket.onopen = () => {

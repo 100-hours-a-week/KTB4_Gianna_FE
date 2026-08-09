@@ -11,6 +11,11 @@ export default defineConfig({
       '/login-process': 'http://localhost:8080',
       '/logout': 'http://localhost:8080',
       '/csrf': 'http://localhost:8080',
+      '/ws': {
+        target: 'ws://localhost:8080',
+        ws: true,
+        changeOrigin: true,
+      }
     },
   },
 })
