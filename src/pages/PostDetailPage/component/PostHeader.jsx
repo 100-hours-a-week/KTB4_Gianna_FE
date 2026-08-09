@@ -55,7 +55,7 @@ export const PostHeader = ({ post, isAuthor}) =>{
 
                 {isAuthor && ( 
                     <div className="post-action-group"> 
-                            {/* <button id="postUploadBtn" type="button" onClick={()=>{navigate(`/post/${post.id}/edit`)}} > 수정 </button> */}
+                            <button id="postUploadBtn" type="button" onClick={()=>{navigate(`/post/${post.id}/edit`)}} > 수정 </button>
                         <button id="postDeleteBtn" type="button" onClick={handleDelete} > 삭제 </button> 
                     </div> )}
         </header>
