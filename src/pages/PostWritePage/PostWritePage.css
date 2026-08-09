@@ -84,8 +84,8 @@ body {
     font-weight: 700;
 }
 
-#postTitle,
-#postContent {
+#postWriteInputTitle,
+#postWriteInputContent {
     width: 100%;
     border: none;
     border-bottom: 1px solid #cfd5ce;
@@ -95,20 +95,22 @@ body {
     outline: none;
 }
 
-#postTitle {
+#postWriteInputTitle {
     height: 44px;
     padding: 0 0 0 2px;
     margin-bottom: 42px;
 }
 
-#postContent {
+#postWriteInputContent {
     height: 142px;
-    padding: 16px 0 0 2px;
+    display: block;
+    padding: 16px 2px;
+    border-top: 1px solid #cfd5ce;
     resize: none;
 }
 
-#postTitle::placeholder,
-#postContent::placeholder {
+#postWriteInputTitle::placeholder,
+#postWriteInputContent::placeholder {
     color: #8a8a8a;
     font-weight: 500;
 }
