@@ -31,7 +31,77 @@ body {
 .discussion-room-body {
     flex: 1;
     border-radius: 20px;
-    background-color: #ffffff;
+    padding: 24px;
+    overflow-y: auto;
+    background:
+        linear-gradient(180deg, rgba(255, 253, 245, 0.96) 0%, rgba(245, 248, 238, 0.96) 100%);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.discussion-room-body::-webkit-scrollbar {
+    display: none;
+}
+
+.discussion-log {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.discussion-message-row {
+    width: 100%;
+    display: flex;
+}
+
+.discussion-message-row.theirs {
+    justify-content: flex-start;
+}
+
+.discussion-message-row.mine {
+    justify-content: flex-end;
+}
+
+.discussion-message-bubble {
+    max-width: min(68%, 520px);
+    padding: 12px 16px 13px;
+    border-radius: 18px;
+    color: #244927;
+    line-height: 1.5;
+    box-shadow: 0 8px 18px rgba(53, 63, 45, 0.09);
+}
+
+.discussion-message-row.theirs .discussion-message-bubble {
+    border-bottom-left-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(36, 73, 39, 0.08);
+}
+
+.discussion-message-row.mine .discussion-message-bubble {
+    border-bottom-right-radius: 6px;
+    background-color: rgba(219, 228, 204, 0.96);
+    border: 1px solid rgba(36, 73, 39, 0.12);
+}
+
+.discussion-message-nickname {
+    display: block;
+    margin-bottom: 5px;
+    color: #4e7448;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.discussion-message-row.mine .discussion-message-nickname {
+    text-align: right;
+}
+
+.discussion-message-bubble p {
+    margin: 0;
+    color: #244927;
+    font-size: 15px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
 }
 
 .discussion-input-area {
@@ -68,4 +138,29 @@ body {
     font-size: 14px;
     font-weight: 700;
     cursor: pointer;
+}
+
+.discussion-input-area button:hover {
+    background-color: #183d1c;
+}
+
+@media (max-width: 720px) {
+    .discussion-page {
+        padding: 34px 18px;
+    }
+
+    .discussion-room-box {
+        height: calc(100vh - 170px);
+        padding: 16px;
+        border-radius: 20px;
+    }
+
+    .discussion-room-body {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .discussion-message-bubble {
+        max-width: 84%;
+    }
 }

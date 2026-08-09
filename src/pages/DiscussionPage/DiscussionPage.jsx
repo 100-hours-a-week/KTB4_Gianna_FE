@@ -8,6 +8,8 @@ export const DiscussionPage = () => {
     const [messageLog, setMessageLog] = useState([]); //전체 메세지
     const [message, setMessage] = useState("");
     const socketRef = useRef(null); 
+    const bodyRef = useRef(null);
+    const currentUserId = getUserId();
 
     useEffect(()=>{
         const webSocket = new WebSocket("ws://localhost:8080/ws/discussion");
@@ -21,8 +23,7 @@ export const DiscussionPage = () => {
         const recievedMessage = JSON.parse(event.data);
         setMessageLog((prevMessageLog) => [...prevMessageLog, recievedMessage]);        
         
-        console.log("서버에서 받은 메시지:", recievedMessage);
-        console.log("prevMessages : ", messageLog);
+        //console.log("서버에서 받은 메시지:", recievedMessage);
         };
 
         webSocket.onerror = (error) => {
@@ -43,16 +44,26 @@ export const DiscussionPage = () => {
         }   
     }, [])
     
-    function handleSendChat(){
+    useEffect(() => {
+        if (bodyRef.current) {
+            bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
+        }
+    }, [messageLog]);
+
+    function handleSendChat(event){
+        event.preventDefault();
         if (!socketRef.current || socketRef.current.readyState !== WebSocket.OPEN) {
             console.log("WebSocket이 아직 연결되지 않았습니다.");
             return;
         }
+
+        if (message.trim() === "") {
+            return;
+        }
         
-        const userId = getUserId();
         socketRef.current.send(JSON.stringify({
             type: "CHAT",
-            content: message
+            content: message.trim()
         }));
 
         setMessage("");
@@ -63,13 +74,13 @@ export const DiscussionPage = () => {
             <div id="headerContainer">{<Header />}</div>
             <main className="discussion-page">
                 <section className="discussion-room-box">
-                    <div className="discussion-room-body">
-                        {<DiscussionLog messageLog={messageLog}/>}
+                    <div className="discussion-room-body" ref={bodyRef}>
+                        {<DiscussionLog messageLog={messageLog} currentUserId={currentUserId}/>}
                     </div>
                     
-                    <form className="discussion-input-area">
+                    <form className="discussion-input-area" onSubmit={handleSendChat}>
                         <input type="text" placeholder="메시지를 입력하세요" onChange={(event)=>{setMessage(event.target.value)}} value={message}/>
-                        <button type="button" onClick={handleSendChat}>전송</button>
+                        <button type="submit">전송</button>
                     </form>
                 </section>
             </main>
