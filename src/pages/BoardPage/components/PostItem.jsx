@@ -25,9 +25,9 @@ export const PostItem = ({ post }) => {
                 </h3>
 
                 <div className="post-card-meta">
-                    <span className="post-card-category">
+                    {/* <span className="post-card-category">
                         {post.category || defaultCategory}
-                    </span>
+                    </span> */}
 
                     <div className="post-card-stats">
                         <span>좋아요 {post.likes ?? 0}</span>

@@ -29,9 +29,9 @@ export const PostHeader = ({ post, isAuthor}) =>{
     }  
     return(
         <header id="postHeader">
-                <p id="postCategory">
+                {/* <p id="postCategory">
                     {"일상"} · {post.author || "익명"}
-                </p>
+                </p> */}
 
                 <h3 id="title">
                     {post.title}
