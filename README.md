@@ -31,6 +31,8 @@ Raffiné 서비스의 프론트엔드 레포지토리입니다. 스스로 무엇
 ### Backend
 - [KTB4_Gianna_BE](https://github.com/100-hours-a-week/KTB4_Gianna_BE)
 
+### 시연 영상
+https://drive.google.com/drive/folders/1nY8cvNMZ4tuO2aPLpwDmIP00zTnJiwid?usp=sharing
 
 ## 설치 방법
 
