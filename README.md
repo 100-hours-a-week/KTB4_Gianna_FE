@@ -3,6 +3,8 @@
 ## 프로젝트 소개
 Raffiné 서비스의 프론트엔드 레포지토리입니다. 스스로 무엇을 좋아하는지 모르는 사람들을 위해 사용자가 자신의 취향과 경험을 게시글로 기록하고, 다른 사용자와 댓글 및 토론을 통해 생각을 나누는 웹 서비스 입니다.
 
+### 서비스 사용
+- [Raffiné](http://54.180.97.37/)
 ### 기능 및 목적
 
 - 사용자 회원가입, 로그인, 계정 관리 화면 제공
@@ -27,7 +29,7 @@ Raffiné 서비스의 프론트엔드 레포지토리입니다. 스스로 무엇
 | Dev Proxy | Vite Proxy | 로컬 개발 환경에서 백엔드 서버와 API 연동 |
 
 ### Backend
-- https://github.com/100-hours-a-week/KTB4_Gianna_BE
+- [KTB4_Gianna_BE](https://github.com/100-hours-a-week/KTB4_Gianna_BE)
 
 
 ## 설치 방법
